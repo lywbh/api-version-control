@@ -31,10 +31,12 @@ public class VersionRequestCondition implements RequestCondition<VersionRequestC
         this.versionRange = versionRange;
     }
 
+    @Override
     public VersionRequestCondition combine(VersionRequestCondition other) {
         return new VersionRequestCondition(other.headerName, other.versionRange);
     }
 
+    @Override
     public VersionRequestCondition getMatchingCondition(HttpServletRequest request) {
         String accept = request.getHeader(headerName);
         if (StringUtils.isEmpty(accept)) {
@@ -54,6 +56,7 @@ public class VersionRequestCondition implements RequestCondition<VersionRequestC
         return null;
     }
 
+    @Override
     public int compareTo(VersionRequestCondition other, HttpServletRequest request) {
         return other.versionRange.getTo().compareTo(this.versionRange.getTo());
     }
