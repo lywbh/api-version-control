@@ -11,7 +11,7 @@ public class Version implements Comparable<Version> {
 
     private int[] tokens;
 
-    private int unlimited;
+    private final int unlimited;
 
     public Version(String version) {
         if (StringUtils.equals(version, MIN_VERSION)) {
@@ -83,10 +83,7 @@ public class Version implements Comparable<Version> {
         if (obj.getClass() != getClass()) {
             return false;
         }
-        if (obj instanceof Version) {
-            return compareTo((Version) obj) == 0;
-        }
-        return false;
+        return compareTo((Version) obj) == 0;
     }
 
     @Override

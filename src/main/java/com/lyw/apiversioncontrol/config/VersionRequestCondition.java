@@ -2,7 +2,7 @@ package com.lyw.apiversioncontrol.config;
 
 import com.lyw.apiversioncontrol.domain.Version;
 import com.lyw.apiversioncontrol.domain.VersionRange;
-import org.springframework.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.servlet.mvc.condition.RequestCondition;
 
 import javax.servlet.http.HttpServletRequest;

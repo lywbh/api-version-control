@@ -5,8 +5,8 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class VersionRange {
 
-    private Version from;
-    private Version to;
+    private final Version from;
+    private final Version to;
 
     public VersionRange(String from, String to) {
         this.from = new Version(from);
@@ -37,11 +37,8 @@ public class VersionRange {
         if (obj.getClass() != getClass()) {
             return false;
         }
-        if (obj instanceof VersionRange) {
-            VersionRange versionRange = (VersionRange) obj;
-            return new EqualsBuilder().append(from, versionRange.from).append(to, versionRange.to).isEquals();
-        }
-        return false;
+        VersionRange versionRange = (VersionRange) obj;
+        return new EqualsBuilder().append(from, versionRange.from).append(to, versionRange.to).isEquals();
     }
 
     @Override
